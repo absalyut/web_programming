@@ -3,115 +3,333 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Programming - Elbek</title>
+  <meta name="theme-color" content="#15120F">
+  <meta name="description" content="Web Programming course archive by Elbek — Gachon University K0126002. Weeks 2 through 12.2, presented as an Arrakis-inspired learning archive.">
+  <title>Web Programming · Arrakis Archive · Elbek</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./course-theme.css">
+  <link rel="stylesheet" href="dune-theme.css">
 </head>
 <body class="course-index">
-  <header class="masthead">
-    <div>
-      <p class="eyebrow">Gachon University · K0126002</p>
-      <h1>Web programming <span>by Elbek</span></h1>
+  <header class="hero" id="top">
+    <nav class="home-nav" aria-label="Primary navigation">
+      <a class="brand" href="#top">ELBEK <span>· ARRAKIS</span></a>
+      <div class="home-nav-links">
+        <a href="#archive">Archive</a>
+        <a href="#new">New Dispatches</a>
+        <a href="https://github.com/absalyut/web_programming" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <p class="hero-kicker">Gachon University · K0126002 · 2026</p>
+      <h1>Web<br><span>Programming</span></h1>
+      <p class="hero-sub">
+        A course archive carved from the quiet of Arrakis. Sixteen modules of HTML, CSS,
+        JavaScript, and React — preserved, rebuilt, and presented as one continuous journey
+        across the desert.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="#archive">Enter the Archive</a>
+        <a class="btn btn-ghost" href="#new">New Dispatches</a>
+      </div>
     </div>
-    <p class="term-note">Coursework<br>2026</p>
+
+    <p class="hero-scroll">Scroll to begin</p>
   </header>
 
-  <main class="course-map">
-    <section class="week">
-      <h2 class="week-heading"><span class="week-number">02</span><span class="week-label">Week 2</span></h2>
-      <ul class="task-list">
-        <li><a href="./week2/task1.html">Task 1</a></li>
-        <li><a href="./week2/task2.html">Task 2</a></li>
-        <li><a href="./week2/task3.html">Task 3</a></li>
-        <li><a href="./week2/task4.html">Task 4</a></li>
-        <li><a href="./week2/task5.html">Task 5</a></li>
-        <li><a href="./week2/task6.html">Task 6</a></li>
-        <li><a href="./week2/task7.html">Task 7</a></li>
-        <li><a href="./week2/task8.html">Task 8</a></li>
-      </ul>
+  <main class="home-main">
+    <section class="stats" aria-label="Course statistics">
+      <div class="stat"><strong>16</strong><span>Course Modules</span></div>
+      <div class="stat"><strong>69</strong><span>Tasks &amp; Exercises</span></div>
+      <div class="stat"><strong>08</strong><span>Newly Added</span></div>
     </section>
 
-    <section class="week">
-      <h2 class="week-heading"><span class="week-number">02</span><span class="week-label">Week 2 · Friday</span></h2>
-      <ul class="task-list">
-        <li><a href="./week2friday/task1.html">Task 1</a></li>
-        <li><a href="./week2friday/task2.html">Task 2</a></li>
-        <li><a href="./week2friday/task3.html">Task 3</a></li>
-        <li><a href="./week2friday/task4.html">Task 4</a></li>
-        <li><a href="./week2friday/task5.html">Task 5</a></li>
-        <li><a href="./week2friday/task6.html">Task 6</a></li>
-        <li><a href="./week2friday/task7.html">Task 7</a></li>
-        <li><a href="./week2friday/task8.html">Task 8</a></li>
-      </ul>
+    <section class="archive" id="archive">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">The First Crossing</p>
+          <h2>Completed Weeks</h2>
+        </div>
+        <p>Weeks 2 through 7. The foundations: structure, style, layout, forms, APIs, and the first full applications.</p>
+      </div>
+
+      <div class="week-grid">
+        <article class="week-card completed reveal">
+          <div class="week-card-top">
+            <span class="week-index">02</span>
+            <span class="week-badge">Completed</span>
+          </div>
+          <h3>Week 2</h3>
+          <p class="week-meta">HTML foundations · 8 tasks</p>
+          <ul class="week-links">
+            <li><a href="./week2/task1.html">Task 1 · First Page</a></li>
+            <li><a href="./week2/task2.html">Task 2</a></li>
+            <li><a href="./week2/task3.html">Task 3</a></li>
+            <li><a href="./week2/task4.html">Task 4</a></li>
+            <li><a href="./week2/task5.html">Task 5</a></li>
+            <li><a href="./week2/task6.html">Task 6</a></li>
+            <li><a href="./week2/task7.html">Task 7</a></li>
+            <li><a href="./week2/task8.html">Task 8</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card completed reveal">
+          <div class="week-card-top">
+            <span class="week-index">02</span>
+            <span class="week-badge">Completed</span>
+          </div>
+          <h3>Week 2 · Friday</h3>
+          <p class="week-meta">Structure &amp; content · 8 tasks</p>
+          <ul class="week-links">
+            <li><a href="./week2friday/task1.html">Task 1</a></li>
+            <li><a href="./week2friday/task2.html">Task 2</a></li>
+            <li><a href="./week2friday/task3.html">Task 3</a></li>
+            <li><a href="./week2friday/task4.html">Task 4</a></li>
+            <li><a href="./week2friday/task5.html">Task 5</a></li>
+            <li><a href="./week2friday/task6.html">Task 6</a></li>
+            <li><a href="./week2friday/task7.html">Task 7</a></li>
+            <li><a href="./week2friday/task8.html">Task 8</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card completed reveal">
+          <div class="week-card-top">
+            <span class="week-index">03</span>
+            <span class="week-badge">Completed</span>
+          </div>
+          <h3>Week 3 · Monday</h3>
+          <p class="week-meta">CSS foundations · 8 tasks</p>
+          <ul class="week-links">
+            <li><a href="./week3monday/task1.html">Task 1</a></li>
+            <li><a href="./week3monday/task2.html">Task 2</a></li>
+            <li><a href="./week3monday/task3.html">Task 3</a></li>
+            <li><a href="./week3monday/task4.html">Task 4</a></li>
+            <li><a href="./week3monday/task5.html">Task 5</a></li>
+            <li><a href="./week3monday/task6.html">Task 6</a></li>
+            <li><a href="./week3monday/task7.html">Task 7</a></li>
+            <li><a href="./week3monday/task8.html">Task 8</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card completed reveal">
+          <div class="week-card-top">
+            <span class="week-index">03</span>
+            <span class="week-badge">Completed</span>
+          </div>
+          <h3>Week 3 · Friday</h3>
+          <p class="week-meta">Layout &amp; styling · 7 tasks</p>
+          <ul class="week-links">
+            <li><a href="./week3friday/task1.html">Task 1</a></li>
+            <li><a href="./week3friday/task2.html">Task 2</a></li>
+            <li><a href="./week3friday/task3.html">Task 3</a></li>
+            <li><a href="./week3friday/task4.html">Task 4</a></li>
+            <li><a href="./week3friday/task5.html">Task 5</a></li>
+            <li><a href="./week3friday/task6.html">Task 6</a></li>
+            <li><a href="./week3friday/task7.html">Task 7</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card completed reveal">
+          <div class="week-card-top">
+            <span class="week-index">04</span>
+            <span class="week-badge">Completed</span>
+          </div>
+          <h3>Week 4 · Monday</h3>
+          <p class="week-meta">Box model &amp; layout · 4 tasks</p>
+          <ul class="week-links">
+            <li><a href="./week4monday/task1.html">Task 1</a></li>
+            <li><a href="./week4monday/task2.html">Task 2</a></li>
+            <li><a href="./week4monday/task3.html">Task 3</a></li>
+            <li><a href="./week4monday/task4.html">Task 4</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card completed reveal">
+          <div class="week-card-top">
+            <span class="week-index">05</span>
+            <span class="week-badge">Completed</span>
+          </div>
+          <h3>Week 5</h3>
+          <p class="week-meta">Responsive design · 2 tasks</p>
+          <ul class="week-links">
+            <li><a href="./week5/task1.html">Task 1</a></li>
+            <li><a href="./week5/task2.html">Task 2</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card completed reveal">
+          <div class="week-card-top">
+            <span class="week-index">06</span>
+            <span class="week-badge">Completed</span>
+          </div>
+          <h3>Week 6</h3>
+          <p class="week-meta">Fetch &amp; public APIs · 6 tasks</p>
+          <ul class="week-links">
+            <li><a href="./week6/task1-random-joke-fetcher.html">Task 1 · Joke Fetcher</a></li>
+            <li><a href="./week6/task2-jsonplaceholder.html">Task 2 · JSONPlaceholder</a></li>
+            <li><a href="./week6/task3-open-meteo-weather.html">Task 3 · Open-Meteo</a></li>
+            <li><a href="./week6/task4-random-user.html">Task 4 · Random User</a></li>
+            <li><a href="./week6/task5-pokeapi.html">Task 5 · PokéAPI</a></li>
+            <li><a href="./week6/task6-rest-countries.html">Task 6 · REST Countries</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card completed reveal">
+          <div class="week-card-top">
+            <span class="week-index">07</span>
+            <span class="week-badge">Completed</span>
+          </div>
+          <h3>Week 7</h3>
+          <p class="week-meta">Applied search · 1 task</p>
+          <ul class="week-links">
+            <li><a href="./week7/book-search.html">Task 1 · Book Search</a></li>
+          </ul>
+        </article>
+      </div>
     </section>
 
-    <section class="week">
-      <h2 class="week-heading"><span class="week-number">03</span><span class="week-label">Week 3 · Monday</span></h2>
-      <ul class="task-list">
-        <li><a href="./week3monday/task1.html">Task 1</a></li>
-        <li><a href="./week3monday/task2.html">Task 2</a></li>
-        <li><a href="./week3monday/task3.html">Task 3</a></li>
-        <li><a href="./week3monday/task4.html">Task 4</a></li>
-        <li><a href="./week3monday/task5.html">Task 5</a></li>
-        <li><a href="./week3monday/task6.html">Task 6</a></li>
-        <li><a href="./week3monday/task7.html">Task 7</a></li>
-        <li><a href="./week3monday/task8.html">Task 8</a></li>
-      </ul>
+    <section class="archive" id="new">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Fresh From the Deep Desert</p>
+          <h2>Newly Added</h2>
+        </div>
+        <p>Weeks 8 through 12.2. Validation, deployment, advanced JavaScript, React components, state, effects, and live API work.</p>
+      </div>
+
+      <div class="week-grid">
+        <article class="week-card new reveal">
+          <div class="week-card-top">
+            <span class="week-index">08</span>
+            <span class="week-badge">New</span>
+          </div>
+          <h3>Week 8</h3>
+          <p class="week-meta">Forms &amp; validation · 3 tasks</p>
+          <ul class="week-links">
+            <li><a href="./week8/task1.html">Task 1 · Login Form</a></li>
+            <li><a href="./week8/task2.html">Task 2 · Validation</a></li>
+            <li><a href="./week8/task3.html">Task 3 · Booking Form</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card new reveal">
+          <div class="week-card-top">
+            <span class="week-index">09</span>
+            <span class="week-badge">New</span>
+          </div>
+          <h3>Week 9</h3>
+          <p class="week-meta">Accessible forms · 1 task</p>
+          <ul class="week-links">
+            <li><a href="./week9/task1.html">Task 1 · Course Enrolment</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card new reveal">
+          <div class="week-card-top">
+            <span class="week-index">09.1</span>
+            <span class="week-badge">New</span>
+          </div>
+          <h3>Week 9.1</h3>
+          <p class="week-meta">DOM &amp; events · 4 tasks</p>
+          <ul class="week-links">
+            <li><a href="./week9_1/task1.html">Task 1 · Campus Events</a></li>
+            <li><a href="./week9_1/task2.html">Task 2</a></li>
+            <li><a href="./week9_1/task3.html">Task 3</a></li>
+            <li><a href="./week9_1/task4.html">Task 4</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card new reveal">
+          <div class="week-card-top">
+            <span class="week-index">09.2</span>
+            <span class="week-badge">New</span>
+          </div>
+          <h3>Week 9.2</h3>
+          <p class="week-meta">Performance &amp; gallery · 1 task</p>
+          <ul class="week-links">
+            <li><a href="./week9_2/task1.html">Task 1 · Campus Gallery</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card new reveal">
+          <div class="week-card-top">
+            <span class="week-index">10</span>
+            <span class="week-badge">New</span>
+          </div>
+          <h3>Week 10</h3>
+          <p class="week-meta">Git, GitHub &amp; deployment · 1 task</p>
+          <ul class="week-links">
+            <li><a href="./week10/task1.html">Task 1 · Deployment Guide</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card new reveal">
+          <div class="week-card-top">
+            <span class="week-index">11</span>
+            <span class="week-badge">New</span>
+          </div>
+          <h3>Week 11</h3>
+          <p class="week-meta">React components &amp; props · 5 tasks</p>
+          <ul class="week-links">
+            <li><a href="./week11/task1.html">Task 1 · Student Directory</a></li>
+            <li><a href="./week11/task2.html">Task 2 · Composition</a></li>
+            <li><a href="./week11/task3.html">Task 3 · Product Cards</a></li>
+            <li><a href="./week11/task4.html">Task 4 · Project Gallery</a></li>
+            <li><a href="./week11/task5.html">Task 5 · Course Cards</a></li>
+            <li><a href="./week11/gallery/index.html">Built Gallery</a></li>
+            <li><a href="./week11/practice/index.html">Practice Build</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card new reveal">
+          <div class="week-card-top">
+            <span class="week-index">12</span>
+            <span class="week-badge">New</span>
+          </div>
+          <h3>Week 12</h3>
+          <p class="week-meta">React state &amp; useState · 5 tasks</p>
+          <ul class="week-links">
+            <li><a href="./week12/task1.html">Task 1 · Shopping Cart</a></li>
+            <li><a href="./week12/task2.html">Task 2 · Counter</a></li>
+            <li><a href="./week12/task3.html">Task 3 · Toggle &amp; Scoreboard</a></li>
+            <li><a href="./week12/task4.html">Task 4 · Effects Lab</a></li>
+            <li><a href="./week12/task5.html">Task 5 · Word &amp; Quiz</a></li>
+          </ul>
+        </article>
+
+        <article class="week-card new reveal">
+          <div class="week-card-top">
+            <span class="week-index">12.2</span>
+            <span class="week-badge">New</span>
+          </div>
+          <h3>Week 12.2</h3>
+          <p class="week-meta">React effects &amp; useEffect · 5 tasks</p>
+          <ul class="week-links">
+            <li><a href="./week12_2/index.html">Week Overview</a></li>
+            <li><a href="./week12_2/task1.html">Task 1 · Weather</a></li>
+            <li><a href="./week12_2/task2.html">Task 2 · GitHub</a></li>
+            <li><a href="./week12_2/task3.html">Task 3 · Study Guide</a></li>
+            <li><a href="./week12_2/task4.html">Task 4 · Effects Lab</a></li>
+            <li><a href="./week12_2/task5.html">Task 5 · Sprint Quiz</a></li>
+          </ul>
+        </article>
+      </div>
     </section>
 
-    <section class="week">
-      <h2 class="week-heading"><span class="week-number">03</span><span class="week-label">Week 3 · Friday</span></h2>
-      <ul class="task-list">
-        <li><a href="./week3friday/task1.html">Task 1</a></li>
-        <li><a href="./week3friday/task2.html">Task 2</a></li>
-        <li><a href="./week3friday/task3.html">Task 3</a></li>
-        <li><a href="./week3friday/task4.html">Task 4</a></li>
-        <li><a href="./week3friday/task5.html">Task 5</a></li>
-        <li><a href="./week3friday/task6.html">Task 6</a></li>
-        <li><a href="./week3friday/task7.html">Task 7</a></li>
-      </ul>
-    </section>
-
-    <section class="week">
-      <h2 class="week-heading"><span class="week-number">04</span><span class="week-label">Week 4 · Monday</span></h2>
-      <ul class="task-list">
-        <li><a href="./week4monday/task1.html">Task 1</a></li>
-        <li><a href="./week4monday/task2.html">Task 2</a></li>
-        <li><a href="./week4monday/task3.html">Task 3</a></li>
-        <li><a href="./week4monday/task4.html">Task 4</a></li>
-      </ul>
-    </section>
-
-    <section class="week">
-      <h2 class="week-heading"><span class="week-number">05</span><span class="week-label">Week 5</span></h2>
-      <ul class="task-list">
-        <li><a href="./week5/task1.html">Task 1</a></li>
-        <li><a href="./week5/task2.html">Task 2</a></li>
-      </ul>
-    </section>
-
-    <section class="week">
-      <h2 class="week-heading"><span class="week-number">06</span><span class="week-label">Week 6</span></h2>
-      <ul class="task-list">
-        <li><a href="./week6/task1-random-joke-fetcher.html">Task 1 · Random Joke Fetcher</a></li>
-        <li><a href="./week6/task2-jsonplaceholder.html">Task 2 · JSONPlaceholder</a></li>
-        <li><a href="./week6/task3-open-meteo-weather.html">Task 3 · Open-Meteo Weather</a></li>
-        <li><a href="./week6/task4-random-user.html">Task 4 · Random User</a></li>
-        <li><a href="./week6/task5-pokeapi.html">Task 5 · PokéAPI</a></li>
-        <li><a href="./week6/task6-rest-countries.html">Task 6 · REST Countries</a></li>
-      </ul>
-    </section>
-
-    <section class="week">
-      <h2 class="week-heading"><span class="week-number">07</span><span class="week-label">Week 7</span></h2>
-      <ul class="task-list">
-        <li><a href="./week7/book-search.html">Task 1 · Book Search</a></li>
-      </ul>
+    <section class="manifesto reveal">
+      <blockquote>
+        “The desert does not ask for speed. It asks for precision.”
+      </blockquote>
+      <cite>Field note · Arrakis</cite>
     </section>
   </main>
 
-  <footer>
-    <p>Elbek · Web Programming · 2026</p>
-    <p>Gachon University</p>
+  <footer class="home-footer">
+    <p>Elbek · Web Programming · Gachon University K0126002 · 2026</p>
+    <p>Built as a single Arrakis-inspired course archive.</p>
   </footer>
+
+  <script src="./dune.js" data-root="./" data-no-topbar defer></script>
 </body>
 </html>

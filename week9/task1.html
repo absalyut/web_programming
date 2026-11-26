@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#15120F">
+  <meta name="description" content="Web Programming course task — Arrakis archive by Elbek, Gachon University K0126002.">
+  <title>JavaScript Form Validation – Course Enrolment</title>
+  <style>
+    :root {
+      --paper: #fbf6ec;
+      --ink: #1f2a44;
+      --muted: #6b6a63;
+      --lapis: #1d4e89;
+      --turquoise: #2a9d8f;
+      --saffron: #e9a23b;
+      --brick: #b83a2e;
+      --line: #e4d9c3;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      padding: 28px 16px 48px;
+      line-height: 1.5;
+    }
+    .page { max-width: 540px; margin: 0 auto; }
+    .band {
+      height: 10px;
+      border-radius: 10px 10px 0 0;
+      background: repeating-linear-gradient(45deg, var(--lapis) 0 10px, var(--turquoise) 10px 20px, var(--saffron) 20px 30px);
+    }
+    .sheet {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 0;
+      border-radius: 0 0 16px 16px;
+      padding: 26px 28px 30px;
+      box-shadow: 0 14px 34px rgba(31, 42, 68, .1);
+    }
+    h1 { font-family: Georgia, serif; font-size: 1.6rem; }
+    .lead { color: var(--muted); font-size: .9rem; margin: 4px 0 20px; }
+
+    .field { margin-bottom: 16px; }
+    label { display: block; font-size: .83rem; font-weight: 600; margin-bottom: 5px; }
+    input:not([type="checkbox"]), select {
+      width: 100%;
+      font: inherit;
+      font-size: .93rem;
+      padding: 10px 12px;
+      border: 2px solid var(--line);
+      border-radius: 9px;
+      background: #fffdf8;
+      transition: border-color .2s, background .2s;
+    }
+    input:focus-visible, select:focus-visible {
+      outline: 3px solid rgba(29, 78, 137, .22);
+      outline-offset: 1px;
+      border-color: var(--lapis);
+    }
+    [aria-invalid="true"] { border-color: var(--brick) !important; background: #fdf3f1 !important; }
+    [aria-invalid="false"] { border-color: var(--turquoise) !important; background: #f1faf7 !important; }
+    .error { min-height: 1.1em; margin-top: 4px; font-size: .78rem; color: var(--brick); }
+
+    .strength { display: flex; gap: 4px; margin-top: 6px; }
+    .strength span { flex: 1; height: 5px; border-radius: 4px; background: #efe7d5; transition: background .2s; }
+    .strength[data-level="1"] span:nth-child(-n+1) { background: var(--brick); }
+    .strength[data-level="2"] span:nth-child(-n+2) { background: var(--saffron); }
+    .strength[data-level="3"] span:nth-child(-n+3) { background: #8fbf5a; }
+    .strength[data-level="4"] span:nth-child(-n+4) { background: var(--turquoise); }
+    .strength-text { font-size: .75rem; color: var(--muted); margin-top: 3px; }
+
+    .terms { display: flex; gap: 10px; align-items: flex-start; font-size: .87rem; }
+    .terms input { margin-top: 3px; width: 17px; height: 17px; accent-color: var(--lapis); }
+
+    #submitBtn {
+      width: 100%;
+      margin-top: 8px;
+      padding: 12px;
+      font: inherit;
+      font-weight: 700;
+      border: 0;
+      border-radius: 9px;
+      color: #fff;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    #submitBtn:enabled { background: var(--lapis); }
+    #submitBtn:enabled:hover { background: #163e6e; }
+    #submitBtn:disabled { background: #aab4c4; cursor: not-allowed; opacity: .8; }
+    .note { font-size: .76rem; color: var(--muted); text-align: center; margin-top: 8px; }
+
+    #success {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: #e5f5ef;
+      border: 1px solid #a8dcc9;
+      color: #1b6b52;
+      font-size: .9rem;
+    }
+    #success.show { display: block; }
+  </style>
+  <link rel="stylesheet" href="../theme.css">
+</head>
+<body>
+  <div class="page">
+    <div class="band"></div>
+    <div class="sheet">
+      <h1>Course Enrolment</h1>
+      <p class="lead">Every field is checked live with JavaScript while you type.</p>
+
+      <form id="enrolForm" novalidate>
+        <div class="field">
+          <label for="sid">Student ID</label>
+          <input type="text" id="sid" name="sid" inputmode="numeric" placeholder="9 digits, e.g. 202612345"
+                 required pattern="[0-9]{9}" aria-describedby="sid-err" autocomplete="off">
+          <div class="error" id="sid-err" role="alert"></div>
+        </div>
+
+        <div class="field">
+          <label for="fullname">Full name</label>
+          <input type="text" id="fullname" name="fullname" placeholder="Your full name"
+                 required minlength="3" aria-describedby="fullname-err">
+          <div class="error" id="fullname-err" role="alert"></div>
+        </div>
+
+        <div class="field">
+          <label for="mail">Email</label>
+          <input type="email" id="mail" name="mail" placeholder="name@example.com"
+                 required aria-describedby="mail-err">
+          <div class="error" id="mail-err" role="alert"></div>
+        </div>
+
+        <div class="field">
+          <label for="track">Track</label>
+          <select id="track" name="track" required aria-describedby="track-err">
+            <option value="">Select a track</option>
+            <option>Front-end</option>
+            <option>Back-end</option>
+            <option>UI / UX design</option>
+            <option>Data and AI</option>
+          </select>
+          <div class="error" id="track-err" role="alert"></div>
+        </div>
+
+        <div class="field">
+          <label for="pass">Password</label>
+          <input type="password" id="pass" name="pass" placeholder="Minimum 8 characters"
+                 required minlength="8" aria-describedby="pass-err pass-meter">
+          <div class="strength" id="strength" data-level="0" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="strength-text" id="pass-meter">Strength: –</div>
+          <div class="error" id="pass-err" role="alert"></div>
+        </div>
+
+        <div class="field">
+          <label for="pass2">Repeat password</label>
+          <input type="password" id="pass2" name="pass2" placeholder="Type the same password"
+                 required aria-describedby="pass2-err">
+          <div class="error" id="pass2-err" role="alert"></div>
+        </div>
+
+        <div class="field">
+          <div class="terms">
+            <input type="checkbox" id="agree" name="agree" required aria-describedby="agree-err">
+            <label for="agree" style="font-weight:400;margin:0">I accept the course rules and the academic honesty policy.</label>
+          </div>
+          <div class="error" id="agree-err" role="alert"></div>
+        </div>
+
+        <button type="submit" id="submitBtn" disabled>Enrol now</button>
+        <p class="note">The button unlocks when every field is valid.</p>
+      </form>
+
+      <div id="success" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('enrolForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const success = document.getElementById('success');
+    const pass = document.getElementById('pass');
+    const pass2 = document.getElementById('pass2');
+    const controls = [...form.elements].filter(el => el.name);
+
+    // friendly message for the first broken constraint of a field
+    const messages = {
+      sid:      { valueMissing: 'Please enter your student ID.', patternMismatch: 'The ID must be exactly 9 digits.' },
+      fullname: { valueMissing: 'Please enter your name.', tooShort: 'Name needs at least 3 characters.' },
+      mail:     { valueMissing: 'Please enter your email.', typeMismatch: 'That does not look like an email address.' },
+      track:    { valueMissing: 'Pick one of the tracks.' },
+      pass:     { valueMissing: 'Please choose a password.', tooShort: 'Use at least 8 characters.' },
+      pass2:    { valueMissing: 'Please repeat the password.' },
+      agree:    { valueMissing: 'You need to accept the rules to continue.' }
+    };
+
+    function describe(el) {
+      if (el.validity.customError) return el.validationMessage;
+      const table = messages[el.name] || {};
+      const key = Object.keys(table).find(k => el.validity[k]);
+      return key ? table[key] : '';
+    }
+
+    function paint(el) {
+      const box = document.getElementById(el.id + '-err');
+      const problem = el.validity.valid ? '' : describe(el);
+      box.textContent = problem;
+      el.setAttribute('aria-invalid', String(!el.validity.valid));
+    }
+
+    // password confirmation uses setCustomValidity(); an empty string means "valid again"
+    function syncConfirm() {
+      pass2.setCustomValidity(pass2.value && pass2.value !== pass.value ? 'The two passwords do not match.' : '');
+    }
+
+    function strengthOf(value) {
+      let score = 0;
+      if (value.length >= 8) score++;
+      if (/[a-z]/.test(value) && /[A-Z]/.test(value)) score++;
+      if (/\d/.test(value)) score++;
+      if (/[^A-Za-z0-9]/.test(value)) score++;
+      return value ? Math.max(score, 1) : 0;
+    }
+
+    function updateStrength() {
+      const level = strengthOf(pass.value);
+      document.getElementById('strength').dataset.level = level;
+      document.getElementById('pass-meter').textContent =
+        'Strength: ' + ['–', 'weak', 'fair', 'good', 'strong'][level];
+    }
+
+    function refreshButton() {
+      submitBtn.disabled = !form.checkValidity();
+    }
+
+    controls.forEach(el => {
+      const evt = (el.tagName === 'SELECT' || el.type === 'checkbox') ? 'change' : 'input';
+      el.addEventListener(evt, () => {
+        if (el === pass) { updateStrength(); syncConfirm(); if (pass2.value) paint(pass2); }
+        if (el === pass2) syncConfirm();
+        paint(el);
+        refreshButton();
+      });
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      syncConfirm();
+      controls.forEach(paint);
+      refreshButton();
+      if (!form.checkValidity()) {
+        form.querySelector('[aria-invalid="true"]').focus();   // jump to the first problem
+        return;
+      }
+      success.textContent = 'Welcome, ' + form.fullname.value.trim() + '! Enrolment in the “' +
+        form.track.value + '” track is confirmed. A message was sent to ' + form.mail.value.trim() + '.';
+      success.classList.add('show');
+      form.reset();
+      controls.forEach(el => el.removeAttribute('aria-invalid'));
+      document.querySelectorAll('.error').forEach(e => { e.textContent = ''; });
+      updateStrength();
+      refreshButton();
+    });
+  </script>
+  <script src="../dune.js" data-root="../" data-week="Week 9" defer></script>
+</body>
+</html>
