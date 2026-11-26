@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#15120F">
+  <meta name="description" content="Portfolio of Mansurov Elbek, a computer science student at Gachon University who builds clean, accessible and fast web pages with HTML, CSS, JavaScript and React.">
+  <title>Mansurov Elbek · Web Developer Portfolio</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../dune-theme.css">
+  <style>
+    /* Portfolio-specific Dune styling */
+    .portfolio-hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(80px, 14vw, 160px) 0 clamp(60px, 10vw, 120px);
+      text-align: center;
+    }
+    .portfolio-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(200, 117, 50, 0.22), transparent 70%),
+        linear-gradient(180deg, rgba(11, 9, 7, 0.55), rgba(21, 18, 15, 0.95));
+      pointer-events: none;
+    }
+    .portfolio-hero > * { position: relative; z-index: 2; }
+    .hero-name {
+      font-family: var(--display);
+      font-size: clamp(2.6rem, 9vw, 7rem);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      line-height: 0.9;
+      color: var(--beige) !important;
+      text-transform: uppercase;
+      margin: 0 0 0.18em;
+      text-shadow: 0 6px 80px rgba(0, 0, 0, 0.75);
+    }
+    .hero-name span { color: var(--gold); display: block; font-size: 0.42em; letter-spacing: 0.34em; margin-top: 0.4em; }
+    .hero-tag {
+      font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+      color: var(--sand);
+      max-width: 640px;
+      margin: 1.6em auto 2em;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 720px; margin: 3.4em auto 0; border: 1px solid var(--line); background: rgba(21, 18, 15, 0.85); backdrop-filter: blur(8px); }
+    .hero-stats div { padding: 20px 12px; text-align: center; border-right: 1px solid var(--line); }
+    .hero-stats div:last-child { border-right: 0; }
+    .hero-stats strong { display: block; font-family: var(--display); font-size: 2rem; color: var(--gold) !important; }
+    .hero-stats span { display: block; margin-top: 0.4em; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted) !important; }
+    .avatar-ring { width: 150px; height: 150px; margin: 0 auto 2em; border-radius: 50%; padding: 6px; background: linear-gradient(135deg, var(--spice), var(--gold)); box-shadow: 0 0 60px rgba(200, 117, 50, 0.35); }
+    .avatar-ring img { width: 100%; height: 100%; border-radius: 50%; display: block; background: var(--dune-black); }
+    .dune-divider { height: 60px; background: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cpath d='M0,60 L0,30 Q200,0 400,25 T800,20 T1200,35 L1200,60 Z' fill='%23292018'/%3E%3Cpath d='M0,60 L0,40 Q300,15 600,35 T1200,45 L1200,60 Z' fill='%2315120F'/%3E%3C/svg%3E") center/cover no-repeat; margin: 0; border: 0; }
+    .section { padding: clamp(56px, 9vw, 100px) 0; }
+    .section-head { margin-bottom: 40px; }
+    .section-head h2 { font-family: var(--display); font-size: clamp(1.9rem, 4vw, 2.8rem); color: var(--gold) !important; letter-spacing: 0.08em; text-transform: uppercase; margin: 0.2em 0 0.4em; }
+    .two-col { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: start; }
+    .facts { display: grid; gap: 14px; }
+    .facts div { display: grid; grid-template-columns: 120px 1fr; gap: 12px; padding: 14px 16px; border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); }
+    .facts dt { color: var(--spice-bright) !important; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; }
+    .facts dd { color: var(--beige) !important; margin: 0; }
+    .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .skill-card { border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); padding: 22px; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+    .skill-card:hover { transform: translateY(-4px); border-color: var(--spice); box-shadow: var(--glow); }
+    .skill-card h3 { color: var(--gold) !important; font-family: var(--display); font-size: 1.2rem; letter-spacing: 0.06em; margin: 0 0 12px; }
+    .skill-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-card li { font-size: 0.78rem; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--sand) !important; background: var(--surface-2); }
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .project-card { border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 12px; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+    .project-card:hover { transform: translateY(-4px); border-color: var(--spice); box-shadow: var(--glow); }
+    .project-card h3 { color: var(--gold) !important; font-family: var(--display); font-size: 1.25rem; letter-spacing: 0.04em; margin: 0; }
+    .project-card p { color: var(--beige) !important; font-size: 0.92rem; line-height: 1.6; flex: 1; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .project-tags span { font-size: 0.68rem; padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--spice-bright) !important; letter-spacing: 0.1em; text-transform: uppercase; }
+    .project-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+    .project-actions a { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 14px; border: 1px solid var(--line); border-radius: var(--radius); color: var(--sand) !important; text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s; }
+    .project-actions a:hover { border-color: var(--spice); color: var(--gold) !important; background: rgba(200, 117, 50, 0.12); }
+    .timeline { list-style: none; padding: 0; margin: 0; position: relative; }
+    .timeline::before { content: ""; position: absolute; left: 18px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(180deg, var(--spice), var(--gold)); }
+    .timeline li { position: relative; padding: 0 0 28px 52px; }
+    .timeline li::before { content: ""; position: absolute; left: 11px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--dune-black); border: 2px solid var(--spice); }
+    .timeline .when { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--spice-bright) !important; font-weight: 700; }
+    .timeline h3 { color: var(--gold) !important; font-family: var(--display); font-size: 1.15rem; margin: 4px 0 6px; letter-spacing: 0.04em; }
+    .timeline p { color: var(--beige) !important; font-size: 0.9rem; line-height: 1.6; margin: 0; }
+    .contact-box { border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); padding: clamp(24px, 4vw, 40px); display: grid; gap: 18px; }
+    .contact-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .contact-row a { color: var(--gold) !important; font-weight: 600; }
+    .portfolio-footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--line); color: var(--muted) !important; font-size: 0.8rem; letter-spacing: 0.1em; }
+    @media (max-width: 760px) {
+      .two-col { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .hero-stats div { border-right: 0; border-bottom: 1px solid var(--line); }
+      .hero-stats div:last-child { border-bottom: 0; }
+    }
+  </style>
+</head>
+<body class="dune-page">
+  <nav class="dune-topbar" aria-label="Portfolio navigation">
+    <a class="dune-brand" href="#top">ELBEK <span>· PORTFOLIO</span></a>
+    <div class="dune-topbar-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/absalyut" target="_blank" rel="noopener">GitHub</a>
+      <a href="../index.html">Course ↗</a>
+    </div>
+  </nav>
+
+  <header class="portfolio-hero" id="top">
+    <div class="container">
+      <div class="avatar-ring">
+        <img src="../assets/favicon.svg" width="160" height="160" alt="Elbek portfolio avatar">
+      </div>
+      <p class="hero-kicker">Mansurov Elbek · 202537363 · Gachon University</p>
+      <h1 class="hero-name">Mansurov<br><span>Elbek</span></h1>
+      <p class="hero-tag">Computer science student who builds clean, accessible and fast web pages — from semantic HTML and responsive CSS to API-powered apps and React components that score 100 in Lighthouse.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#projects">View my projects</a>
+        <a class="btn btn-ghost" href="https://github.com/absalyut" target="_blank" rel="noopener">GitHub profile</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>69+</strong><span>course tasks</span></div>
+        <div><strong>100</strong><span>Lighthouse score</span></div>
+        <div><strong>12</strong><span>weeks of practice</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="dune-divider"></div>
+
+  <main class="home-main" style="padding-top:0">
+    <section class="section" id="about">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">About me</p>
+          <h2>About</h2>
+          <p>I study computer science at Gachon University. In the Web Programming course I learned how a page is built layer by layer: structure with HTML, design with CSS, behaviour with JavaScript and now interfaces made of React components.</p>
+          <p>I care about the details that make a site good for everyone: readable text, keyboard navigation, helpful error messages and fast loading. Every course task is published on my <a href="https://absalyut.github.io/web_programming/">course page</a>.</p>
+        </div>
+        <dl class="facts">
+          <div><dt>University</dt><dd>Gachon University</dd></div>
+          <div><dt>Major</dt><dd>Computer Science</dd></div>
+          <div><dt>Student ID</dt><dd>202537363</dd></div>
+          <div><dt>Course</dt><dd>Web Programming (K0126002)</dd></div>
+          <div><dt>Focus</dt><dd>Accessibility, performance and React</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <p class="eyebrow">What I know</p>
+        <h2>Skills</h2>
+        <div class="skill-grid">
+          <article class="skill-card">
+            <h3>Front-end</h3>
+            <ul><li>HTML5</li><li>CSS3</li><li>Flexbox and Grid</li><li>JavaScript</li><li>React</li><li>useState</li><li>useEffect</li><li>Vite</li></ul>
+          </article>
+          <article class="skill-card">
+            <h3>Data and forms</h3>
+            <ul><li>Fetch API</li><li>Async / await</li><li>AbortController</li><li>localStorage</li><li>Form validation</li><li>JSON</li></ul>
+          </article>
+          <article class="skill-card">
+            <h3>Quality and tools</h3>
+            <ul><li>Accessibility</li><li>Performance</li><li>Lighthouse</li><li>Git and GitHub</li><li>GitHub Pages</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects</h2>
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Open-Meteo Weather Dashboard</h3>
+            <p>Real-time weather with Open-Meteo API, city geocoding, 7-day forecast, AbortController and GPS geolocation.</p>
+            <div class="project-tags"><span>React</span><span>useEffect</span><span>API</span></div>
+            <div class="project-actions">
+              <a href="https://absalyut.github.io/web_programming/week12_2/task1.html" target="_blank" rel="noopener">Live demo</a>
+              <a href="https://github.com/absalyut/web_programming/blob/main/week12_2/task1.html" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>GitHub User Lookup</h3>
+            <p>Live user lookup with AbortController to prevent race conditions, loading and error states, profile statistics.</p>
+            <div class="project-tags"><span>React</span><span>useEffect</span></div>
+            <div class="project-actions">
+              <a href="https://absalyut.github.io/web_programming/week12_2/task2.html" target="_blank" rel="noopener">Live demo</a>
+              <a href="https://github.com/absalyut/web_programming/blob/main/week12_2/task2.html" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Interactive Shopping Cart</h3>
+            <p>React state with objects and arrays, quantity controls, real-time total and promo discounts.</p>
+            <div class="project-tags"><span>React</span><span>State</span></div>
+            <div class="project-actions">
+              <a href="https://absalyut.github.io/web_programming/week12/task1.html" target="_blank" rel="noopener">Live demo</a>
+              <a href="https://github.com/absalyut/web_programming/blob/main/week12/task1.html" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Counter with History &amp; Undo</h3>
+            <p>Dual stateful counter tracking the last five count values with undo functionality.</p>
+            <div class="project-tags"><span>React</span><span>State</span></div>
+            <div class="project-actions">
+              <a href="https://absalyut.github.io/web_programming/week12/task2.html" target="_blank" rel="noopener">Live demo</a>
+              <a href="https://github.com/absalyut/web_programming/blob/main/week12/task2.html" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Student Directory</h3>
+            <p>A React app with a reusable StudentProfileCard component, props and custom CSS.</p>
+            <div class="project-tags"><span>React</span><span>Props</span></div>
+            <div class="project-actions">
+              <a href="https://absalyut.github.io/web_programming/week11/task1.html" target="_blank" rel="noopener">Live demo</a>
+              <a href="https://github.com/absalyut/web_programming/blob/main/week11/task1.html" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Project Gallery</h3>
+            <p>ProjectCard, ProjectList and a FilterBar that filters cards by technology using state.</p>
+            <div class="project-tags"><span>React</span><span>State</span></div>
+            <div class="project-actions">
+              <a href="https://absalyut.github.io/web_programming/week11/task4.html" target="_blank" rel="noopener">Live demo</a>
+              <a href="https://github.com/absalyut/web_programming/blob/main/week11/task4.html" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Random Joke Generator</h3>
+            <p>Loads a joke from a public API with a spinner, error handling and favourites in localStorage.</p>
+            <div class="project-tags"><span>JavaScript</span><span>API</span></div>
+            <div class="project-actions">
+              <a href="https://absalyut.github.io/web_programming/week6/task1-random-joke-fetcher.html" target="_blank" rel="noopener">Live demo</a>
+              <a href="https://github.com/absalyut/web_programming/blob/main/week6/task1-random-joke-fetcher.html" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Book Search App</h3>
+            <p>Searches the Open Library API and renders the results as responsive cards.</p>
+            <div class="project-tags"><span>JavaScript</span><span>API</span></div>
+            <div class="project-actions">
+              <a href="https://absalyut.github.io/web_programming/week7/book-search.html" target="_blank" rel="noopener">Live demo</a>
+              <a href="https://github.com/absalyut/web_programming/blob/main/week7/book-search.html" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Form Validation</h3>
+            <p>Live checks, ARIA messages, password confirmation and a smart submit button.</p>
+            <div class="project-tags"><span>JavaScript</span><span>Accessibility</span></div>
+            <div class="project-actions">
+              <a href="https://absalyut.github.io/web_programming/week9/task1.html" target="_blank" rel="noopener">Live demo</a>
+              <a href="https://github.com/absalyut/web_programming/blob/main/week9/task1.html" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Accessible Events Page</h3>
+            <p>Skip link, labelled form and keyboard friendly controls, improved from 92 to 100.</p>
+            <div class="project-tags"><span>Accessibility</span><span>HTML</span></div>
+            <div class="project-actions">
+              <a href="https://absalyut.github.io/web_programming/week9_1/task1.html" target="_blank" rel="noopener">Live demo</a>
+              <a href="https://github.com/absalyut/web_programming/blob/main/week9_1/task1.html" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3>Performance Makeover</h3>
+            <p>A gallery that went from 39 to 100 with WebP, lazy loading, defer and minified files.</p>
+            <div class="project-tags"><span>Performance</span><span>HTML</span></div>
+            <div class="project-actions">
+              <a href="https://absalyut.github.io/web_programming/week9_2/task1.html" target="_blank" rel="noopener">Live demo</a>
+              <a href="https://github.com/absalyut/web_programming/blob/main/week9_2/task1.html" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="container">
+        <p class="eyebrow">How I got here</p>
+        <h2>Journey</h2>
+        <ul class="timeline">
+          <li><span class="when">Weeks 2-3</span><h3>HTML and CSS</h3><p>Semantic pages, the box model, flexbox, grid and responsive layouts.</p></li>
+          <li><span class="when">Weeks 4-5</span><h3>JavaScript and the DOM</h3><p>Selecting elements, handling events and building small interactive tools.</p></li>
+          <li><span class="when">Weeks 6-7</span><h3>APIs</h3><p>Fetching real data with async / await and showing loading and error states.</p></li>
+          <li><span class="when">Weeks 8-9</span><h3>Forms, accessibility and speed</h3><p>Validation, ARIA, Lighthouse audits and performance optimisation.</p></li>
+          <li><span class="when">Week 10</span><h3>Git and deployment</h3><p>Branches, merges, commits and publishing with GitHub Pages.</p></li>
+          <li><span class="when">Week 11</span><h3>React</h3><p>Components, props, lists, conditional rendering and a filterable gallery.</p></li>
+          <li><span class="when">Week 12</span><h3>React State &amp; Effects</h3><p>The useState and useEffect hooks, immutable updates, Open-Meteo API data fetching and cleanup functions.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Contact</h2>
+        <div class="contact-box">
+          <div class="contact-row">
+            <span style="color:var(--muted)">Name</span>
+            <strong style="color:var(--beige)">Mansurov Elbek</strong>
+          </div>
+          <div class="contact-row">
+            <span style="color:var(--muted)">Student ID</span>
+            <strong style="color:var(--beige)">202537363</strong>
+          </div>
+          <div class="contact-row">
+            <span style="color:var(--muted)">University</span>
+            <strong style="color:var(--beige)">Gachon University · K0126002</strong>
+          </div>
+          <div class="contact-row">
+            <span style="color:var(--muted)">GitHub</span>
+            <a href="https://github.com/absalyut" target="_blank" rel="noopener">github.com/absalyut</a>
+          </div>
+          <div class="contact-row">
+            <span style="color:var(--muted)">Course page</span>
+            <a href="https://absalyut.github.io/web_programming/" target="_blank" rel="noopener">absalyut.github.io/web_programming</a>
+          </div>
+          <div class="contact-row">
+            <span style="color:var(--muted)">Email</span>
+            <a href="mailto:xasanove879@gmail.com">xasanove879@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="portfolio-footer">
+    <p>&copy; 2026 Mansurov Elbek · 202537363 · Web Programming · Gachon University</p>
+    <p style="margin-top:8px"><a href="../index.html" style="color:var(--gold)">← Back to course archive</a></p>
+  </footer>
+
+  <script src="../dune.js" data-root="../" data-week="Portfolio" data-no-topbar defer></script>
+  <script src="../reveal.js"></script>
+</body>
+</html>
