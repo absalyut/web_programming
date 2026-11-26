@@ -25,9 +25,9 @@
     nav.innerHTML =
       '<a class="dune-brand" href="' + root + 'index.html">ELBEK <span>· WEB PROGRAMMING</span></a>' +
       '<div class="dune-topbar-links">' +
-      '<a href="' + root + 'index.html#archive">Archive</a>' +
-      '<a href="' + root + 'index.html#new">New</a>' +
-      '<span class="dune-crumb">' + (week ? week + " · " : "") + "ARRAKIS</span>" +
+      '<a href="' + root + 'index.html#weeks">Weeks</a>' +
+      '<a href="https://github.com/absalyut/web_programming" target="_blank" rel="noopener">GitHub</a>' +
+      '<span class="dune-crumb">' + (week || "") + "</span>" +
       "</div>";
     body.insertBefore(nav, body.firstChild);
   }
@@ -36,8 +36,8 @@
     var footer = document.createElement("footer");
     footer.className = "dune-footer";
     footer.innerHTML =
-      "<p>Elbek · Web Programming · Arrakis</p>" +
-      '<p><a href="' + root + 'index.html">Return to the course archive</a></p>';
+      "<p>Mansurov Elbek · 202537363 · Web Programming</p>" +
+      '<p><a href="' + root + 'index.html">Back to all weeks</a></p>';
     body.appendChild(footer);
   }
 

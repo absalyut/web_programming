@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#15120F">
-  <meta name="description" content="Web Programming course task — Arrakis archive by Elbek, Gachon University K0126002.">
+  <meta name="description" content="Web Programming course task by Mansurov Elbek (202537363), Gachon University.">
   <title>Week 11 · Task 4: Portfolio Gallery Component</title>
   <script>(function(){var t=localStorage.getItem("site-theme")||"dark";document.documentElement.setAttribute("data-theme",t);document.documentElement.classList.add("js");})();</script>
   <link rel="stylesheet" href="../theme.css">
@@ -144,7 +144,7 @@
 <body>
   <a class="skip-link" href="#main">skip to main content</a>
   <header>
-    <strong>Sukhrob</strong> <span style="margin-left:10px;font-size:.9rem;opacity:.85">Week 11 · Task 4 · <a href="../" style="color:#fff">All tasks</a></span>
+    <strong>Elbek</strong> <span style="margin-left:10px;font-size:.9rem;opacity:.85">Week 11 · Task 4 · <a href="../" style="color:#fff">All tasks</a></span>
   </header>
 
   <main id="main" tabindex="-1">
@@ -171,7 +171,7 @@
         <li><code>ProjectList</code> that renders an array of projects with stable unique keys.</li>
         <li><code>FilterBar</code> that dynamically computes technology tags and allows the user to filter the list.</li>
       </ul>
-      <p>Integrated with Sukhrob's actual semester projects (Weeks 6–11), and also accessible via the compiled standalone app: <a href="./gallery/index.html">Open Built Gallery Bundle &rarr;</a></p>
+      <p>Integrated with my actual semester projects (Weeks 6–11), and also accessible via the compiled standalone app: <a href="./gallery/index.html">Open Built Gallery Bundle &rarr;</a></p>
     </article>
 
     <!-- REACT ROOT -->
@@ -224,15 +224,15 @@ function ProjectCard({ title, description, tech, github, demo }) {
   </main>
 
   <footer>
-    <p>&copy; 2026 Sukhrob (202537508) · Web Programming K0126002 · Task 4</p>
+    <p>&copy; 2026 Elbek (202537363) · Web Programming K0126002 · Task 4</p>
   </footer>
 
   <!-- Babel Script: Portfolio Gallery Interactive App -->
   <script type="text/babel">
     const { useState, useMemo } = React;
 
-    const BASE_DEMO = "https://msukhrob.github.io/web-programming/";
-    const BASE_REPO = "https://github.com/MSukhrob/web-programming/blob/main/";
+    const BASE_DEMO = "https://absalyut.github.io/web_programming/";
+    const BASE_REPO = "https://github.com/absalyut/web_programming/blob/main/";
 
     const MY_PROJECTS = [
       {
@@ -240,24 +240,24 @@ function ProjectCard({ title, description, tech, github, demo }) {
         title: "Student Directory React App",
         description: "Task 11-A Vite + React application with 5 props, student ID badge, and automated rubric verification.",
         tech: ["React", "Vite", "CSS"],
-        demo: "https://msukhrob.github.io/task11/",
-        github: "https://github.com/MSukhrob/task11"
+        demo: "https://absalyut.github.io/web_programming/week11/task1.html",
+        github: "https://github.com/absalyut/web_programming"
       },
       {
         id: 2,
         title: "Personal Developer Portfolio",
         description: "Responsive personal portfolio website featuring dark mode toggle, semantic HTML, and 100 Lighthouse score.",
         tech: ["HTML", "CSS", "JavaScript"],
-        demo: "https://msukhrob.github.io/portfolio/",
-        github: "https://github.com/MSukhrob/portfolio"
+        demo: "https://absalyut.github.io/web_programming/",
+        github: "https://github.com/absalyut/web_programming"
       },
       {
         id: 3,
         title: "Open Library Book Search",
         description: "Interactive book search application consuming the Open Library REST API with responsive card layouts.",
         tech: ["JavaScript", "API", "CSS"],
-        demo: BASE_DEMO + "week7/task1.html",
-        github: BASE_REPO + "week7/task1.html"
+        demo: BASE_DEMO + "week7/book-search.html",
+        github: BASE_REPO + "week7/book-search.html"
       },
       {
         id: 4,
@@ -288,8 +288,8 @@ function ProjectCard({ title, description, tech, github, demo }) {
         title: "REST Countries & Joke Explorer",
         description: "DOM scripting and asynchronous API data fetching with loading spinners and error handling.",
         tech: ["JavaScript", "API"],
-        demo: BASE_DEMO + "week6/task1.html",
-        github: BASE_REPO + "week6/task1.html"
+        demo: BASE_DEMO + "week6/task1-random-joke-fetcher.html",
+        github: BASE_REPO + "week6/task1-random-joke-fetcher.html"
       }
     ];
 

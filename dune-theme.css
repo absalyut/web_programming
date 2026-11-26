@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ARRAKIS / DUNE-INSPIRED COURSE THEME
+   DESERT-INSPIRED COURSE THEME
    Original CSS artwork. No film stills, posters, logos, or proprietary art.
    ========================================================================== */
 
@@ -1235,7 +1235,7 @@ body.course-index .stat span {
   text-transform: uppercase;
 }
 
-body.course-index .archive {
+body.course-index .weeks-section {
   padding-top: clamp(56px, 8vw, 92px);
 }
 

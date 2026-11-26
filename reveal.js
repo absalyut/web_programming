@@ -1,4 +1,4 @@
-/* Scroll reveal for the Week 8–12.2 pages. Theme is always Arrakis dark. */
+/* Scroll reveal for the Week 8–12.2 pages. Theme is always dark. */
 (function () {
   "use strict";
 

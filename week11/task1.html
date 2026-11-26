@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#15120F">
-  <meta name="description" content="Web Programming course task — Arrakis archive by Elbek, Gachon University K0126002.">
+  <meta name="description" content="Web Programming course task by Mansurov Elbek (202537363), Gachon University.">
   <title>Week 11 · Task 1: Student Directory (Task 11-A)</title>
   <script>(function(){var t=localStorage.getItem("site-theme")||"dark";document.documentElement.setAttribute("data-theme",t);document.documentElement.classList.add("js");})();</script>
   <link rel="stylesheet" href="../theme.css">
@@ -164,7 +164,7 @@
 <body>
   <a class="skip-link" href="#main">skip to main content</a>
   <header>
-    <strong>Sukhrob</strong> <span style="margin-left:10px;font-size:.9rem;opacity:.85">Week 11 · Task 1 · <a href="../" style="color:#fff">All tasks</a></span>
+    <strong>Elbek</strong> <span style="margin-left:10px;font-size:.9rem;opacity:.85">Week 11 · Task 1 · <a href="../" style="color:#fff">All tasks</a></span>
   </header>
 
   <main id="main" tabindex="-1">
@@ -188,11 +188,11 @@
         <h2 style="margin:0">Task 11-A Specification Overview</h2>
         <span class="rubric-badge ok">30 / 30 Points · Verified</span>
       </div>
-      <p>Build a <code>StudentProfileCard</code> component that accepts 5 props (<code>name</code>, <code>studentId</code>, <code>major</code>, <code>year</code>, <code>gpa</code>) and renders formatted cards. The primary card displays my real university student ID (<strong>202537508</strong>), rendered alongside 2 classmate cards with custom non-framework CSS.</p>
+      <p>Build a <code>StudentProfileCard</code> component that accepts 5 props (<code>name</code>, <code>studentId</code>, <code>major</code>, <code>year</code>, <code>gpa</code>) and renders formatted cards. The primary card displays my real university student ID (<strong>202537363</strong>), rendered alongside 2 classmate cards with custom non-framework CSS.</p>
       
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
-        <a class="btn" href="https://msukhrob.github.io/task11/" target="_blank" rel="noopener">🚀 Open Live Deployed App</a>
-        <a class="btn" style="background:#0f1b3d" href="https://github.com/MSukhrob/task11" target="_blank" rel="noopener">📦 GitHub Repository</a>
+        <a class="btn" href="https://absalyut.github.io/web_programming/week11/task1.html" target="_blank" rel="noopener">🚀 Open Live Deployed App</a>
+        <a class="btn" style="background:#0f1b3d" href="https://github.com/absalyut/web_programming" target="_blank" rel="noopener">📦 GitHub Repository</a>
       </div>
     </article>
 
@@ -208,17 +208,17 @@
     <!-- Self-Check Tool matching Dr. Toshpulatov's rubric -->
     <article class="card">
       <h2>Interactive Submission Self-Checker</h2>
-      <p>This automated validation tool runs the exact 7 rubric tests implemented in Dr. Toshpulatov's <a href="https://muxiddin19.github.io/WebPro/week10/WebPro_Week11_Fri_Task11A_ReactProps.html" target="_blank" rel="noopener">Task 11-A Rubric Checker</a>.</p>
+      <p>This automated validation tool runs the exact 7 rubric tests implemented in Dr. Toshpulatov's Task 11-A Rubric Checker.</p>
 
       <div class="checker-box">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div>
             <label for="inp-id">Student ID (Required):</label>
-            <input type="text" id="inp-id" value="202537508">
+            <input type="text" id="inp-id" value="202537363">
           </div>
           <div>
             <label for="inp-gh">GitHub Repo URL:</label>
-            <input type="text" id="inp-gh" value="https://github.com/MSukhrob/task11">
+            <input type="text" id="inp-gh" value="https://github.com/absalyut/web_programming">
           </div>
         </div>
 
@@ -231,8 +231,8 @@ function App() {
       <h1>Student Directory</h1>
       <div className="directory">
         <StudentProfileCard
-          name="Sukhrob"
-          studentId="202537508"
+          name="Elbek"
+          studentId="202537363"
           major="Computer Science"
           year="2nd year"
           gpa="4.3"
@@ -306,8 +306,8 @@ function App() {
       &lt;h1&gt;Student Directory&lt;/h1&gt;
       &lt;div className="directory"&gt;
         &lt;StudentProfileCard
-          name="Sukhrob"
-          studentId="202537508"
+          name="Elbek"
+          studentId="202537363"
           major="Computer Science"
           year="2nd year"
           gpa="4.3"
@@ -385,13 +385,13 @@ export default App;</code></pre>
           </tr>
           <tr>
             <td><strong>Student ID in Output</strong></td>
-            <td>Real student ID (<code>202537508</code>) uniquely rendered</td>
+            <td>Real student ID (<code>202537363</code>) uniquely rendered</td>
             <td>5 pts</td>
             <td><span style="color:#16a34a;font-weight:700">✅ 5 / 5</span></td>
           </tr>
           <tr>
             <td><strong>3 Cards Rendered</strong></td>
-            <td>Sukhrob + 2 classmates (Muso, Jasurbek)</td>
+            <td>Elbek + 2 classmates (Muso, Jasurbek)</td>
             <td>4 pts</td>
             <td><span style="color:#16a34a;font-weight:700">✅ 4 / 4</span></td>
           </tr>
@@ -403,13 +403,13 @@ export default App;</code></pre>
           </tr>
           <tr>
             <td><strong>GitHub Pages URL</strong></td>
-            <td>Live HTTP 200 at <code>msukhrob.github.io/task11/</code></td>
+            <td>Live HTTP 200 at <code>absalyut.github.io/web_programming/week11/task1.html</code></td>
             <td>4 pts</td>
             <td><span style="color:#16a34a;font-weight:700">✅ 4 / 4</span></td>
           </tr>
           <tr>
             <td><strong>Commit History</strong></td>
-            <td>&ge; 3 meaningful commits on <code>MSukhrob/task11</code></td>
+            <td>&ge; 3 meaningful commits on <code>absalyut/web_programming</code></td>
             <td>3 pts</td>
             <td><span style="color:#16a34a;font-weight:700">✅ 3 / 3</span></td>
           </tr>
@@ -424,7 +424,7 @@ export default App;</code></pre>
   </main>
 
   <footer>
-    <p>&copy; 2026 Sukhrob (202537508) · Web Programming K0126002 · Task 11-A</p>
+    <p>&copy; 2026 Elbek (202537363) · Web Programming K0126002 · Task 11-A</p>
   </footer>
 
   <!-- Babel Script: Live React Component Execution -->
@@ -447,7 +447,7 @@ export default App;</code></pre>
 
     function DirectoryApp() {
       const students = [
-        { name: "Sukhrob Mansurov", id: "202537508", major: "Computer Science", year: "2nd Year", gpa: "4.30" },
+        { name: "Mansurov Elbek", id: "202537363", major: "Computer Science", year: "2nd Year", gpa: "4.30" },
         { name: "Muso", id: "202537265", major: "Computer Science", year: "2nd Year", gpa: "4.30" },
         { name: "Jasurbek", id: "202537234", major: "Computer Science", year: "2nd Year", gpa: "4.00" }
       ];
