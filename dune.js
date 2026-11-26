@@ -36,7 +36,7 @@
     var footer = document.createElement("footer");
     footer.className = "dune-footer";
     footer.innerHTML =
-      "<p>Mansurov Elbek · 202537363 · Web Programming</p>" +
+      "<p>Xasanov Elbek · 202537363 · Web Programming</p>" +
       '<p><a href="' + root + 'index.html">Back to all weeks</a></p>';
     body.appendChild(footer);
   }
