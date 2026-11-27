@@ -77,6 +77,10 @@
         </div>
         <p>Weeks 2 through 12.2 in order — foundations, APIs, accessibility, deployment, and React.</p>
       </div>
+      <div style="margin:0 0 28px">
+        <input id="week-search" type="search" placeholder="Search weeks or tasks (e.g. React, weather, form)…" aria-label="Search weeks and tasks"
+          style="width:100%;padding:14px 18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--beige);font-size:1rem">
+      </div>
 
       <div class="week-grid">
         <article class="week-card reveal">
@@ -328,5 +332,20 @@
   </footer>
 
   <script src="./dune.js" data-root="./" data-no-topbar defer></script>
+  <script>
+    (function () {
+      var input = document.getElementById('week-search');
+      if (!input) return;
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.week-card'));
+      input.addEventListener('input', function () {
+        var q = input.value.trim().toLowerCase();
+        cards.forEach(function (card) {
+          var text = (card.innerText || '').toLowerCase();
+          var match = !q || text.indexOf(q) !== -1;
+          card.style.display = match ? '' : 'none';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

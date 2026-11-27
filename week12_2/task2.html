@@ -484,7 +484,7 @@ export default function GitHubUserLookup() {
           {user && !loading && !error && (
             <div className="profile-card-gh">
               <div className="avatar-wrapper">
-                <img src={user.avatar_url} alt={user.name || user.login} className="avatar-img" />
+                <img loading="lazy" src={user.avatar_url} alt={user.name || user.login} className="avatar-img" />
               </div>
 
               <div className="user-info">

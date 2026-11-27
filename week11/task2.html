@@ -139,7 +139,7 @@
     function ProfileCard({ name, role, email, avatarUrl = DEFAULT_AVATAR }) {
       return (
         <div className="profile-card-comp">
-          <img className="profile-avatar" src={avatarUrl} alt={name} />
+          <img loading="lazy" className="profile-avatar" src={avatarUrl} alt={name} />
           <h3>{name}</h3>
           <p className="role">{role}</p>
           <a href={`mailto:${email}`}>{email}</a>
@@ -291,7 +291,7 @@
 function ProfileCard({ name, role, email, avatarUrl = 'default-avatar.svg' }) {
   return (
     <div className="card">
-      <img src={avatarUrl} alt={name} />
+      <img loading="lazy" src={avatarUrl} alt={name} />
       <h3>{name}</h3>
       <p>{role}</p>
       <a href={"mailto:" + email}>{email}</a>

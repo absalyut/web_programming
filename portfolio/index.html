@@ -106,13 +106,14 @@
       <a href="#contact">Contact</a>
       <a href="https://github.com/absalyut" target="_blank" rel="noopener">GitHub</a>
       <a href="../index.html">Course ↗</a>
+
     </div>
   </nav>
 
   <header class="portfolio-hero" id="top">
     <div class="container">
       <div class="avatar-ring">
-        <img src="../assets/favicon.svg" width="160" height="160" alt="Elbek portfolio avatar">
+        <img loading="lazy" src="../assets/favicon.svg" width="160" height="160" alt="Elbek portfolio avatar">
       </div>
       <p class="hero-kicker">Xasanov Elbek · 202537363 · Gachon University</p>
       <h1 class="hero-name">Xasanov<br><span>Elbek</span></h1>
@@ -175,6 +176,12 @@
       <div class="container">
         <p class="eyebrow">Selected work</p>
         <h2>Projects</h2>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px;align-items:center">
+          <input id="project-search" type="search" placeholder="Search projects…" aria-label="Search projects"
+            style="flex:1;min-width:200px;padding:10px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--beige);font-size:0.9rem">
+          <div id="project-filters" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+        </div>
+        <p id="project-count" role="status" style="font-size:0.78rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin:0 0 16px"></p>
         <div class="project-grid">
           <article class="project-card">
             <h3>Open-Meteo Weather Dashboard</h3>
@@ -334,7 +341,65 @@
     <p style="margin-top:8px"><a href="../index.html" style="color:var(--gold)">← Back to course archive</a></p>
   </footer>
 
+  <button id="back-to-top" aria-label="Back to top" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--gold);font-size:1.2rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 0.3s,transform 0.3s;z-index:50">↑</button>
   <script src="../dune.js" data-root="../" data-week="Portfolio" data-no-topbar defer></script>
   <script src="../reveal.js"></script>
+  <script>
+    (function () {
+      // Project filter + search
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.project-card'));
+      var filtersWrap = document.getElementById('project-filters');
+      var search = document.getElementById('project-search');
+      var count = document.getElementById('project-count');
+      var tags = [];
+      cards.forEach(function (c) {
+        Array.prototype.slice.call(c.querySelectorAll('.project-tags span')).forEach(function (t) {
+          var v = t.textContent.trim();
+          if (tags.indexOf(v) === -1) tags.push(v);
+        });
+      });
+      tags.unshift('All');
+      var activeTag = 'All';
+      function renderFilters() {
+        if (!filtersWrap) return;
+        filtersWrap.innerHTML = '';
+        tags.forEach(function (t) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = t;
+          b.style.cssText = 'font-size:0.7rem;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:' + (t === activeTag ? 'var(--spice)' : 'var(--surface-2)') + ';color:' + (t === activeTag ? '#fff' : 'var(--sand)') + ';cursor:pointer;letter-spacing:0.1em;text-transform:uppercase';
+          b.addEventListener('click', function () { activeTag = t; renderFilters(); applyFilter(); });
+          filtersWrap.appendChild(b);
+        });
+      }
+      function applyFilter() {
+        var q = (search ? search.value : '').trim().toLowerCase();
+        var shown = 0;
+        cards.forEach(function (c) {
+          var text = (c.innerText || '').toLowerCase();
+          var cardTags = Array.prototype.slice.call(c.querySelectorAll('.project-tags span')).map(function (t) { return t.textContent.trim(); });
+          var tagMatch = activeTag === 'All' || cardTags.indexOf(activeTag) !== -1;
+          var qMatch = !q || text.indexOf(q) !== -1;
+          var show = tagMatch && qMatch;
+          c.style.display = show ? '' : 'none';
+          if (show) shown++;
+        });
+        if (count) count.textContent = shown + ' of ' + cards.length + ' projects';
+      }
+      renderFilters();
+      applyFilter();
+      if (search) search.addEventListener('input', applyFilter);
+
+      // Back to top
+      var btn = document.getElementById('back-to-top');
+      if (btn) {
+        window.addEventListener('scroll', function () {
+          if (window.scrollY > 400) { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; }
+          else { btn.style.opacity = '0'; btn.style.pointerEvents = 'none'; }
+        }, { passive: true });
+        btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      }
+    })();
+  </script>
 </body>
 </html>
